@@ -124,32 +124,6 @@ class blakjak:
             self.player_done = True
         return
 
-    def dealer_turn(self):
-        # print('dealer turn')
-        # show_game(self.dealer_deck, self.player_deck)
-        dealer_value = get_value(self.dealer_deck)
-        player_value = get_value(self.player_deck)
-        # print(player_value)
-        # print(dealer_value)
-        # print('dealer')
-        if dealer_value <= player_value and dealer_value < 21:
-            # self.dealer_deck.append(pick_cards(self.deck)[0])
-            try:
-                self.dealer_deck.append(pick_cards(self.deck)[0])
-            except IndexError:
-                self.deck = json.load(open('cards.json'))
-                self.dealer_deck.append(pick_cards(self.deck)[0])
-        elif dealer_value == 21 and dealer_value == player_value:
-            self.draw = True
-        if dealer_value > 21:
-            self.dealer_lost = True
-            self.dealer_done = True
-            self.player_lost = False
-        elif dealer_value > player_value:
-            self.dealer_lost = False
-            self.player_lost = True
-            self.dealer_done = True
-
     def test_ai(self, winner, config):
         net = neat.nn.FeedForwardNetwork.create(winner, config)
         counts = 0

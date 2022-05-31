@@ -176,8 +176,8 @@ def run_neat(config):
     # comment out the p = neat.Populaition(Config) line
     # replace it with p = neat.Checkpointer.restore_checkpoint('neat checkpoint filename')
 
-    # p = neat.Population(config)
-    p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-954')
+    p = neat.Population(config)
+    # p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-954')
 
     p.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()

@@ -83,7 +83,7 @@ class blackjack:
             if verbose:
                 self.game.show_game(self.game.dealer_deck, self.game.player_deck)
                 input()
-            if dealer_value <= player_value and dealer_value < 21:
+            if dealer_value <= player_value and dealer_value < 16:
                 try:
                     self.game.dealer_deck.append(self.game.pick_cards(self.game.deck)[0])
                 except IndexError:
